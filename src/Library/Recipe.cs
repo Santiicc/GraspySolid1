@@ -31,7 +31,7 @@ namespace Full_GRASP_And_SOLID.Library
             foreach (Step step in this.steps)
             {
                 Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
-                    $"usando '{step.Equipment.Description}' durante {step.Time}");
+                    $"usando '{step.Equipment.Description}' durante {step.Time} con un costo de");
             }
         }
     }

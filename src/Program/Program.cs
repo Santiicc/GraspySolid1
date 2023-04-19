@@ -23,7 +23,7 @@ namespace Full_GRASP_And_SOLID
 
             Recipe recipe = new Recipe();
             recipe.FinalProduct = GetProduct("Café con leche");
-            recipe.AddStep(new Step(GetProduct("Café"), 100, GetEquipment("Cafetera"), 120));
+            recipe.AddStep(new Step(GetProduct("Café"),100, GetEquipment("Cafetera"), 120));
             recipe.AddStep(new Step(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60));
             recipe.PrintRecipe();
         }
@@ -58,16 +58,21 @@ namespace Full_GRASP_And_SOLID
             return equipmentCatalog[index] as Equipment;
         }
 
-        private static Product GetProduct(string description)
+         public static Product GetProduct(string description)
         {
             var query = from Product product in productCatalog where product.Description == description select product;
             return query.FirstOrDefault();
         }
-
         private static Equipment GetEquipment(string description)
         {
             var query = from Equipment equipment in equipmentCatalog where equipment.Description == description select equipment;
             return query.FirstOrDefault();
         }
+        public static Equipment GetpriceEquipment(double hourlyCost)
+        {
+            var query = from Equipment equipment in equipmentCatalog where equipment.HourlyCost == hourlyCost select equipment;
+            return query.FirstOrDefault();
+        }
+
     }
 }
